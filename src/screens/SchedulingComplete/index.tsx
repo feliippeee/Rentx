@@ -1,6 +1,7 @@
 import React from 'react';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { StatusBar, useWindowDimensions } from 'react-native';
+import { CarDTO } from '../../dtos/CarDTO';
 
 import LogoSvg from '../../assets/logo_background_gray.svg';
 import DoneSvg from '../../assets/done.svg';
@@ -15,10 +16,14 @@ import {
     Footer,
  } from './styles';
 
+ interface Params {
+    car: CarDTO;
+}
+
 export function SchedulingComplete() {
     const { width } = useWindowDimensions();
     const navigation = useNavigation();
-
+    const route = useRoute();
     function handleConfirm() {
         navigation.navigate('Home')
     }
